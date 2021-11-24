@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("animes")
 @Slf4j
@@ -33,6 +35,12 @@ public class AnimeController {
     @ResponseStatus(HttpStatus.OK)
     public Mono<Anime> findById(@PathVariable int id) {
         return animeService.findById(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Mono<Anime> save(@Valid @RequestBody Anime anime) {
+        return animeService.save(anime);
     }
 
 }
