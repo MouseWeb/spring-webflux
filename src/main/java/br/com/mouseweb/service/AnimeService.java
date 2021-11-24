@@ -8,4 +8,5 @@ public interface AnimeService {
     Flux<Anime> findAll();
     Mono<Anime> findById(int id);
     Mono<Anime> save(Anime anime);
+    Mono<Void> update(Anime anime);
 }
