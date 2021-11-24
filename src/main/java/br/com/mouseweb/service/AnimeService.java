@@ -9,4 +9,6 @@ public interface AnimeService {
     Mono<Anime> findById(int id);
     Mono<Anime> save(Anime anime);
     Mono<Void> update(Anime anime);
+    Mono<Void> update2(Anime withId);
+    Mono<Void> delete(int id);
 }

@@ -49,4 +49,16 @@ public class AnimeController {
         return animeService.update(anime);
     }
 
+    @PutMapping(path = "{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public Mono<Void> update2(@PathVariable int id, @Valid @RequestBody Anime anime) {
+        return animeService.update2(anime.withId(id));
+    }
+
+    @DeleteMapping(path = "{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public Mono<Void> delete(@PathVariable int id) {
+        return animeService.delete(id);
+    }
+
 }

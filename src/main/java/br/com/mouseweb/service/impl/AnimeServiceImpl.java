@@ -42,4 +42,15 @@ public class AnimeServiceImpl implements AnimeService {
                 .thenEmpty(Mono.empty());
     }
 
+    public Mono<Void> update2(Anime anime) {
+        return findById(anime.getId())
+                .flatMap(animeRepository::save)
+                .then();
+    }
+
+    public Mono<Void> delete(int id) {
+        return findById(id)
+                .flatMap(animeRepository::delete);
+    }
+
 }
